@@ -77,14 +77,24 @@
   };
 
   // Return all elements of an array that pass a truth test.
-  _.filter = function(array, test) {
-    var result = [];
+  _.filter = function(collection, test) {
+    var result = undefined;
 
-    _.each(array, function(item, index) {
-      if (test(item, index)) {
-        result.push(item);
-      }
-    });
+    if (collection.length) {
+      result = [];
+      _.each(collection, function(item, index) {
+        if (test(item, index)) {
+          result.push(item);
+        }
+      });
+    } else if (typeof collection === "object") {
+      result = {};
+      _.each(collection, function(item, index) {
+        if (test(item, index)) {
+          result[index] = item;
+        }
+      });
+    }
 
     return result;
   };
