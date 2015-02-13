@@ -346,6 +346,15 @@ _.delay = function(func, wait) {
 // input array. For a tip on how to make a copy of an array, see:
 // http://mdn.io/Array.prototype.slice
 _.shuffle = function(array) {
+	var arr = array.slice();
+	var randomSwap = function(value, index, collection){
+		var rIndex = Math.floor( Math.random() * collection.length );
+		var temp = collection[rIndex];
+		collection[rIndex] = collection[index];
+		collection[index] = temp;
+	}
+	_.each(arr, randomSwap);
+	return arr;
 };
 
 
