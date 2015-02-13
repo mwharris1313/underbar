@@ -4,6 +4,7 @@
 'use strict';
 
 window._ = {};
+if (global === undefined) var global = window;
 
 // Returns whatever value is passed as the argument. This function doesn't
 // seem very useful, but remember it--if a function needs to provide an
@@ -330,11 +331,7 @@ _.memoize = function(func) {
 // parameter. For example _.delay(someFunction, 500, 'a', 'b') will
 // call someFunction('a', 'b') after 500ms
 _.delay = function(func, wait) {
-	var arrArg = [];
-	for (var i=2; i<arguments.length; i++){
-		arrArg.push(arguments[i]);
-	}
-	setTimeout.apply(this, arguments);
+	setTimeout.apply(global, arguments);
 };
 
 
