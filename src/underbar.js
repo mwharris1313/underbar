@@ -210,13 +210,13 @@ _.contains = function(collection, target) {
 _.every = function(collection, iterator) {
 	// TIP: Try re-using reduce() here.
 
-	if (collection.length === 0) return true;
+	if (collection.length === 0 || collection.size === 0) return true;
 	var result = _.reduce(collection, function(memo, item){
 		if (iterator === undefined) return item ? memo + 1 : 0;
 		return iterator(item) ? memo + 1 : 0;
 	}, 0);
 	
-	return result === collection.length ? true : false;
+	return result === collection.length;
 
 };
 
