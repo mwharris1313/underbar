@@ -330,6 +330,11 @@ _.memoize = function(func) {
 // parameter. For example _.delay(someFunction, 500, 'a', 'b') will
 // call someFunction('a', 'b') after 500ms
 _.delay = function(func, wait) {
+	var arrArg = [];
+	for (var i=2; i<arguments.length; i++){
+		arrArg.push(arguments[i]);
+	}
+	setTimeout.apply(this, arguments);
 };
 
 
