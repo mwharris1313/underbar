@@ -105,7 +105,7 @@ _.filter = function(collection, test) {
 _.reject = function(collection, test) {
 	// TIP: see if you can re-use _.filter() here, without simply
 	// copying code in and modifying it
-	return _.filter(collection, function(item, index){return !test(item, test)});
+	return _.filter(collection, function(item, index){return !test(item, index)});
 };
 
 // Produce a duplicate-free version of the array.
