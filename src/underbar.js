@@ -318,10 +318,8 @@ _.memoize = function(func) {
 		var arg = arguments[0];
 		if (result[arg] === undefined){	
 			result[arg] = func.apply(this, arguments);
-			return result[arg];
-		} else {
-			return result[arg];
 		}
+		return result[arg];
 	}
 };
 
